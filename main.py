@@ -1,4 +1,3 @@
-# - * - coding: utf- 8 - * -
 import telebot
 
 from telebot import types
@@ -135,7 +134,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="mainmenu")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Выбран товар:Нитропропен 100грамм.К оплате 9500 рублей.Товар зарезервирован на 40 минут,спустя 40 минут бронь пропадет!",
+                              text="\U0001F48AВыбран товар:Нитропропен 100грамм.\n\U0001F4B2К оплате: 9500 рублей.\nТовар зарезервирован на 40 минут!\n\U0001F558спустя 40 минут бронь пропадет!",
                               reply_markup=keyboard)
     elif call.data == "prop200":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -143,7 +142,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="mainmenu")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Выбран товар:Нитропропен 200грамм.К оплате 17500 рублей.Товар зарезервирован на 40 минут,спустя 40 минут бронь пропадет!",
+                              text="Выбран товар:\U0001F48AНитропропен 200грамм.\n\U0001F4B2К оплате 17500 рублей.\nТовар зарезервирован на 40 минут\n\U0001F558спустя 40 минут бронь пропадет!",
                               reply_markup=keyboard)
     elif call.data == "etil1":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -151,7 +150,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="mainmenu")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Выбран товар:Нитроэтилен 1литр.К оплате 11000 рублей.Товар зарезервирован на 40 минут,спустя 40 минут бронь пропадет!",
+                              text="\U0001F680Выбран товар:Нитроэтилен 1литр\n.\n\U0001F4B2К оплате 11000 рублей.\nТовар зарезервирован на 40 минут,\n\U0001F558спустя 40 минут бронь пропадет!",
                               reply_markup=keyboard)
     elif call.data == "etil2":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -159,7 +158,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="mainmenu")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Выбран товар:Нитроэтилен 2литр.К оплате 18000 рублей.Товар зарезервирован на 40 минут,спустя 40 минут бронь пропадет!",
+                              text="\U0001F680Выбран товар:Нитроэтилен 2литр.\n\U0001F4B2К оплате 18000 рублей.\nТовар зарезервирован на 40 минут,\n\U0001F558спустя 40 минут бронь пропадет!",
                               reply_markup=keyboard)
     elif call.data == "payprop100":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -169,7 +168,7 @@ def callback_inline(call):
         # bot.send_photo(chat_id=call.message.chat.id, photo=img)
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Вы выбрали товар: \n Нитропропен 200 грамм \n К оплате: 17500 рублей \n Bitcoin кошелёк:\n 1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G \n После оплаты нажмите кнопку 'Обновить' ",
+                              text="Вы выбрали товар: \n \U0001F48AНитропропен 100 грамм \n\U0001F4B2 К оплате: 9500 рублей \n \U0001F4B3Bitcoin кошелёк:\n 1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G \n\U0001F6A9 После оплаты нажмите кнопку 'Обновить' ",
                               reply_markup=keyboard)
     elif call.data == "payprop200":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -177,7 +176,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="prop200")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Вы выбрали товар: \n Нитропропен 200 грамм \n К оплате: 17500 рублей \n Bitcoin кошелёк:\n 1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G \n После оплаты нажмите кнопку 'Обновить' ",
+                              text="Вы выбрали товар: \n \U0001F48AНитропропен 200 грамм \n \U0001F4B2К оплате: 17500 рублей \n \U0001F4B3Bitcoin кошелёк:\n 1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G \n\U0001F6A9 После оплаты нажмите кнопку 'Обновить' ",
                               reply_markup=keyboard)
     elif call.data == "payetil1":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -185,7 +184,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="etil1")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Выбран товар:Нитроэтилен 1литр.К оплате 11000 рублей.Переведите на кошелек:32173128dsad8sa.Через 10 минут после оплаты нажмите кнопку обновить",
+                              text="\U0001F680Выбран товар:Нитроэтилен 1литр\n\U0001F4B2К оплате 11000 рублей.\n\U0001F4B3Bitcoin кошелек:\n1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G\n\U0001F6A9Через 10 минут после оплаты нажмите кнопку обновить",
                               reply_markup=keyboard)
     elif call.data == "payetil2":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -193,7 +192,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="etil2")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Выбран товар:Нитроэтилен 2литр.К оплате 18000 рублей.Переведите на кошелек:32173128dsad8sa.Через 10 минут после оплаты нажмите кнопку обновить",
+                              text="\U0001F680Выбран товар:Нитроэтилен 2литр.\n\U0001F4B2К оплате 18000 рублей\n\U0001F4B3Bitcoin кошелек:\n1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G\n \U0001F558 Через 10 минут после оплаты нажмите кнопку обновить",
                               reply_markup=keyboard)
     elif call.data == "refresh":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -201,7 +200,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="mainmenu")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Ожидайте,Платёж обрабатывается..",
+                              text="\U0001F6A9 Ожидайте,Платёж обрабатывается..",
                               reply_markup=keyboard)
     elif call.data == "2" or call.data =="6":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -218,7 +217,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="mainmenu")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Выбран товар:Нитропропен 500грамм.К оплате 30500 рублей.Товар зарезервирован на 40 минут,спустя 40 минут бронь пропадет!",
+                              text="Выбран товар:\U0001F48AНитропропен 500грамм.\n\U0001F4B2К оплате 30500 рублей.Товар зарезервирован на 40 минут,спустя 40 минут бронь пропадет!",
                               reply_markup=keyboard)
     elif call.data == "payprop500":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -226,7 +225,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="prop500")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Вы выбрали товар: \n Нитропропен 500 грамм \n К оплате: 30500 рублей \n Bitcoin кошелёк: \n1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G \n После оплаты нажмите кнопку 'Обновить' ",
+                              text="Вы выбрали товар: \n\U0001F48A Нитропропен 500 грамм \n\U0001F4B2 К оплате: 30500 рублей \n\U0001F4B3Bitcoin кошелёк: \n1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G \n\U0001F6A9 После оплаты нажмите кнопку 'Обновить' ",
                               reply_markup=keyboard)
     elif call.data == "5" or call.data=="half6":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -253,7 +252,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="first")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Выбран товар:Нитропропен 1100грамм.К оплате 49500 рублей.Товар зарезервирован на 40 минут,спустя 40 минут бронь пропадет!",
+                              text="Выбран товар:Нитропропен 1000грамм.\n \U0001F4B2оплате 49500 рублей.Товар зарезервирован на 40 минут,спустя 40 минут бронь пропадет!",
                               reply_markup=keyboard)
     elif call.data == "payprop1000":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -261,7 +260,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="prop100")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Вы выбрали товар: \n Нитропропен 200 грамм \n К оплате: 49500 рублей \n Bitcoin кошелёк: \n 1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G \n После оплаты нажмите кнопку 'Обновить' ",
+                              text="Вы выбрали товар:Нитропропен 200 грамм \n \U0001F4B2К оплате: 49500 рублей \n \U0001F4B3Bitcoin кошелёк: \n 1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G \n\U0001F6A9 После оплаты нажмите кнопку 'Обновить' ",
                               reply_markup=keyboard)
     elif call.data == "etil3":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -269,7 +268,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="mainmenu")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Выбран товар:Нитроэтилен 3литра.К оплате 27000 рублей.Товар зарезервирован на 40 минут,спустя 40 минут бронь пропадет!",
+                              text="\U0001F680Выбран товар:Нитроэтилен 3литра.\n\U0001F4B2К оплате 27000 рублей.Товар зарезервирован на 40 минут,спустя 40 минут бронь пропадет!",
                               reply_markup=keyboard)
     elif call.data == "payetil3":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -277,7 +276,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="etil3")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Выбран товар:Нитроэтилен 3литра.К оплате 27000 рублей.Переведите на кошелек:32173128dsad8sa.Через 10 минут после оплаты нажмите кнопку обновить",
+                              text="\U0001F680Выбран товар:Нитроэтилен 3литра.\n \U0001F4B2К оплате 27000 рублей.\n\U0001F4B3Bitcoin кошелек\n1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G\n\U0001F6A9Через 10 минут после оплаты нажмите кнопку обновить",
                               reply_markup=keyboard)
     elif call.data == "half1" or call.data =="half3":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
