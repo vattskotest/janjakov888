@@ -16,7 +16,8 @@ def any_msg(message):
     five_button = types.InlineKeyboardButton(text="Новосибирск", callback_data="five")
     six_button = types.InlineKeyboardButton(text="Челябинск", callback_data="six")
     seven_button = types.InlineKeyboardButton(text="Нижний Новгород", callback_data="seven")
-    keyboardmain.add(first_button,halffirst_button,second_button,thrird_button,fourth_button,five_button,six_button,seven_button)
+    eight_button= types.InlineKeyboardButton(text="Пермь", callback_data="eight")
+    keyboardmain.add(first_button,halffirst_button,second_button,thrird_button,fourth_button,five_button,six_button,seven_button,eight_button)
     bot.send_message(message.chat.id, "Выберите город:", reply_markup=keyboardmain)
 
 @bot.callback_query_handler(func=lambda call:True)
@@ -117,6 +118,15 @@ def callback_inline(call):
                               text="Нижний Новгород.Выберите Район:",
                               reply_markup=keyboard)
 
+    elif call.data == "eight":
+        keyboard = types.InlineKeyboardMarkup(row_width=1)
+        rele1 = types.InlineKeyboardButton(text="Орджоникидзевский ", callback_data="prm1")
+        rele2 = types.InlineKeyboardButton(text="Кировский", callback_data="prm2")
+        rele3 = types.InlineKeyboardButton(text="Свердловский ", callback_data="prm3")
+        backbutton = types.InlineKeyboardButton(text="Назад", callback_data="mainmenu")
+        keyboard.add(rele1, rele2, rele3, backbutton)
+        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="Пермь.Выберите Район:",
+                              reply_markup=keyboard)
 
     elif call.data == "1" or call.data == "4" or call.data=="half3":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -452,7 +462,7 @@ def callback_inline(call):
     elif call.data == "novgorod1":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
         rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб. ", callback_data="prop100")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литр -18000руб.", callback_data="etil2")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -18000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="seven")
         keyboard.add(rele1,rele4, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
@@ -462,8 +472,36 @@ def callback_inline(call):
     elif call.data == "novgorod2":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
         rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб. ", callback_data="prop100")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литр -18000руб.", callback_data="etil2")
+        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 17500руб.", callback_data="prop200")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -18000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="seven")
+        keyboard.add(rele1,rele4,rele2,backbutton)
+        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
+                              text="Район выбран.Выберите товар:",
+                              reply_markup=keyboard)
+    elif call.data == "prm1":
+        keyboard = types.InlineKeyboardMarkup(row_width=1)
+        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 17500руб." , callback_data="prop200")
+        rele3 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 11000руб.", callback_data="etil1")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -18000руб.", callback_data="etil2")
+        backbutton = types.InlineKeyboardButton(text="Назад", callback_data="eight")
+        keyboard.add(rele2, rele3,rele4,backbutton)
+        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="Район выбран.Выберите Товар:",
+                              reply_markup=keyboard)
+    elif call.data == "prm3":
+        keyboard = types.InlineKeyboardMarkup(row_width=1)
+        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб. ", callback_data="prop100")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литрf -18000руб.", callback_data="etil2")
+        backbutton = types.InlineKeyboardButton(text="Назад", callback_data="eight")
+        keyboard.add(rele1,rele4, backbutton)
+        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
+                              text="Район выбран.Выберите товар:",
+                              reply_markup=keyboard)
+    elif call.data == "prm2":
+        keyboard = types.InlineKeyboardMarkup(row_width=1)
+        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб. ", callback_data="prop100")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 1литр -11000руб.", callback_data="etil1")
+        backbutton = types.InlineKeyboardButton(text="Назад", callback_data="eight")
         keyboard.add(rele1,rele4, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                               text="Район выбран.Выберите товар:",
