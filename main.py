@@ -33,7 +33,8 @@ def callback_inline(call):
         five_button = types.InlineKeyboardButton(text="Новосибирск", callback_data="five")
         six_button = types.InlineKeyboardButton(text="Челябинск", callback_data="six")
         seven_button = types.InlineKeyboardButton(text="Нижний Новгород", callback_data="seven")
-        keyboardmain.add(first_button,halffirst_button,second_button,thrird_button,fourth_button,five_button,six_button,seven_button)
+        eight_button = types.InlineKeyboardButton(text="Пермь", callback_data="eight")
+        keyboardmain.add(first_button,halffirst_button,second_button,thrird_button,fourth_button,five_button,six_button,seven_button,eight_button)
         bot.edit_message_text(chat_id=call.message.chat.id,message_id=call.message.message_id, text="Выберите город",reply_markup=keyboardmain)
 
     if call.data == "first":
@@ -210,7 +211,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="mainmenu")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="\U0001F6A9 Ожидайте,Платёж обрабатывается..",
+                              text="\U0001F6A9 Ожидайте,Платёж обрабатывается..Ожидание потверждения.",
                               reply_markup=keyboard)
     elif call.data == "2" or call.data =="6":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
