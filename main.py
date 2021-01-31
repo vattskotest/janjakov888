@@ -131,12 +131,11 @@ def callback_inline(call):
 
     elif call.data == "1" or call.data == "4" or call.data=="half3":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб. ", callback_data="prop100")
-        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 17500руб." , callback_data="prop200")
-        rele3 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 11000руб.", callback_data="etil1")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -18000руб.", callback_data="etil2")
+        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб. ", callback_data="prop100")
+        rele2 = types.InlineKeyboardButton(text="Нитроэтилен 0.5 литра- 8000руб." , callback_data="etil50")
+        rele3 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 13000руб.", callback_data="etil1")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="first")
-        keyboard.add(rele1, rele2, rele3,rele4,backbutton)
+        keyboard.add(rele1, rele2, rele3,backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "prop100":
@@ -155,13 +154,31 @@ def callback_inline(call):
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                               text="Выбран товар:\U0001F48AНитропропен 200грамм.\n\U0001F4B2К оплате 17500 рублей.\nТовар зарезервирован на 40 минут\n\U0001F558спустя 40 минут бронь пропадет!",
                               reply_markup=keyboard)
+    elif call.data == "etil50":
+        keyboard = types.InlineKeyboardMarkup(row_width=1)
+        rele1 = types.InlineKeyboardButton(text="Оплатить Нитроэтилен 50грамм", callback_data="payetil50")
+        backbutton = types.InlineKeyboardButton(text="Назад", callback_data="mainmenu")
+        keyboard.add(rele1, backbutton)
+        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
+                              text="\U0001F48AВыбран товар:Нитроэтилен 0.5литров.\n\U0001F4B2К оплате: 8000 рублей.\nТовар зарезервирован на 40 минут!\n\U0001F558спустя 40 минут бронь пропадет!",
+                              reply_markup=keyboard)
+    elif call.data == "payetil50":
+        keyboard = types.InlineKeyboardMarkup(row_width=1)
+        rele1 = types.InlineKeyboardButton(text="Обновить статус", callback_data="refresh")
+        backbutton = types.InlineKeyboardButton(text="Назад", callback_data="etil50")
+        # img = open("123.jpg", "rb")
+        # bot.send_photo(chat_id=call.message.chat.id, photo=img)
+        keyboard.add(rele1, backbutton)
+        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
+                              text="Вы выбрали товар: \n \U0001F48AНитроэтилен 0.5литров\n\U0001F4B2 К оплате: 8000 рублей \n \U0001F4B3Bitcoin кошелёк:\n 13uJrkRFNiu65PR8cMCNtoXALk4WoijXTi \n\U0001F6A9 После оплаты нажмите кнопку 'Обновить' ",
+                              reply_markup=keyboard)
     elif call.data == "etil1":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
         rele1 = types.InlineKeyboardButton(text="Оплатить Нитроэтилен 1литр", callback_data="payetil1")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="mainmenu")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="\U0001F680Выбран товар:Нитроэтилен 1литр\n.\n\U0001F4B2К оплате 11000 рублей.\nТовар зарезервирован на 40 минут,\n\U0001F558спустя 40 минут бронь пропадет!",
+                              text="\U0001F680Выбран товар:Нитроэтилен 1литр\n.\n\U0001F4B2К оплате 13000 рублей.\nТовар зарезервирован на 40 минут,\n\U0001F558спустя 40 минут бронь пропадет!",
                               reply_markup=keyboard)
     elif call.data == "etil2":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -169,7 +186,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="mainmenu")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="\U0001F680Выбран товар:Нитроэтилен 2литр.\n\U0001F4B2К оплате 18000 рублей.\nТовар зарезервирован на 40 минут,\n\U0001F558спустя 40 минут бронь пропадет!",
+                              text="\U0001F680Выбран товар:Нитроэтилен 2литр.\n\U0001F4B2К оплате 23000 рублей.\nТовар зарезервирован на 40 минут,\n\U0001F558спустя 40 минут бронь пропадет!",
                               reply_markup=keyboard)
     elif call.data == "payprop100":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -179,7 +196,7 @@ def callback_inline(call):
         # bot.send_photo(chat_id=call.message.chat.id, photo=img)
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Вы выбрали товар: \n \U0001F48AНитропропен 100 грамм \n\U0001F4B2 К оплате: 9500 рублей \n \U0001F4B3Bitcoin кошелёк:\n 1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G \n\U0001F6A9 После оплаты нажмите кнопку 'Обновить' ",
+                              text="Вы выбрали товар: \n \U0001F48AНитропропен 100 грамм \n\U0001F4B2 К оплате: 11500 рублей \n \U0001F4B3Bitcoin кошелёк:\n 1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G \n\U0001F6A9 После оплаты нажмите кнопку 'Обновить' ",
                               reply_markup=keyboard)
     elif call.data == "payprop200":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -187,7 +204,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="prop200")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Вы выбрали товар: \n \U0001F48AНитропропен 200 грамм \n \U0001F4B2К оплате: 17500 рублей \n \U0001F4B3Bitcoin кошелёк:\n 1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G \n\U0001F6A9 После оплаты нажмите кнопку 'Обновить' ",
+                              text="Вы выбрали товар: \n \U0001F48AНитропропен 200 грамм \n \U0001F4B2К оплате: 20000 рублей \n \U0001F4B3Bitcoin кошелёк:\n 1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G \n\U0001F6A9 После оплаты нажмите кнопку 'Обновить' ",
                               reply_markup=keyboard)
     elif call.data == "payetil1":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -195,7 +212,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="etil1")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="\U0001F680Выбран товар:Нитроэтилен 1литр\n\U0001F4B2К оплате 11000 рублей.\n\U0001F4B3Bitcoin кошелек:\n1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G\n\U0001F6A9Через 10 минут после оплаты нажмите кнопку обновить",
+                              text="\U0001F680Выбран товар:Нитроэтилен 1литр\n\U0001F4B2К оплате 13000 рублей.\n\U0001F4B3Bitcoin кошелек:\n1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G\n\U0001F6A9Через 10 минут после оплаты нажмите кнопку обновить",
                               reply_markup=keyboard)
     elif call.data == "payetil2":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -203,7 +220,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="etil2")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="\U0001F680Выбран товар:Нитроэтилен 2литр.\n\U0001F4B2К оплате 18000 рублей\n\U0001F4B3Bitcoin кошелек:\n1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G\n \U0001F558 Через 10 минут после оплаты нажмите кнопку обновить",
+                              text="\U0001F680Выбран товар:Нитроэтилен 2литр.\n\U0001F4B2К оплате 23000 рублей\n\U0001F4B3Bitcoin кошелек:\n1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G\n \U0001F558 Через 10 минут после оплаты нажмите кнопку обновить",
                               reply_markup=keyboard)
     elif call.data == "refresh":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -215,16 +232,17 @@ def callback_inline(call):
                               reply_markup=keyboard)
     elif call.data == "2" or call.data =="6":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб. ", callback_data="prop100")
-        rele2 = types.InlineKeyboardButton(text="Нитропропен 500гр - 30500руб." , callback_data="prop500")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -18000руб.", callback_data="etil2")
+        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб. ", callback_data="prop100")
+        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 20000руб." , callback_data="prop200")
+        rele3 = types.InlineKeyboardButton(text="Нитроэтилен 0.5литра -8000руб.", callback_data="etil50")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -23000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="first")
-        keyboard.add(rele1, rele2,rele4,backbutton)
+        keyboard.add(rele1, rele2,rele3,rele4,backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "prop500":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Оплатить Нитропропен 500гр-30500руб.", callback_data="payprop500")
+        rele1 = types.InlineKeyboardButton(text="Оплатить Нитропропен 500гр-34000руб.", callback_data="payprop500")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="mainmenu")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
@@ -240,30 +258,33 @@ def callback_inline(call):
                               reply_markup=keyboard)
     elif call.data == "5" or call.data=="half6":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 17500руб." , callback_data="prop200")
+        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб.", callback_data="prop100")
+        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 2000руб." , callback_data="prop200")
         rele3 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 11000руб.", callback_data="etil1")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -18000руб.", callback_data="etil2")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 0.5литра -8000руб.", callback_data="etil50")
+        rele5 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -23000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="first")
-        keyboard.add(rele2, rele3,rele4,backbutton)
+        keyboard.add(rele1,rele2,rele3,rele4,rele5,backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "3" or call.data == "7" :
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Нитропропен 200гр - 17500руб. ", callback_data="prop200")
-        rele2 = types.InlineKeyboardButton(text="Нитропропен 1000гр - 49500руб.", callback_data="prop1000")
+        rele1 = types.InlineKeyboardButton(text="Нитропропен 200гр - 20000руб.", callback_data="prop200")
+        rele2 = types.InlineKeyboardButton(text="Нитропропен 500гр - 34000руб.", callback_data="prop500")
         rele4 = types.InlineKeyboardButton(text="Нитроэтилен 1литр -11000руб.", callback_data="etil1")
+        rele3 = types.InlineKeyboardButton(text="Нитроэтилен 0.5литра -8000руб.", callback_data="etil50")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="first")
-        keyboard.add(rele1, rele2, rele4, backbutton)
+        keyboard.add(rele1, rele2,rele3, rele4, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                               text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "prop1000":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Оплатить Нитропропен 1000гр-49500руб.", callback_data="payprop1000")
+        rele1 = types.InlineKeyboardButton(text="Оплатить Нитропропен 1000гр-57000руб.", callback_data="payprop1000")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="first")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Выбран товар:Нитропропен 1000грамм.\n \U0001F4B2оплате 49500 рублей.Товар зарезервирован на 40 минут,спустя 40 минут бронь пропадет!",
+                              text="Выбран товар:Нитропропен 1000грамм.\n \U0001F4B2оплате 57000 рублей.Товар зарезервирован на 40 минут,спустя 40 минут бронь пропадет!",
                               reply_markup=keyboard)
     elif call.data == "payprop1000":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -271,7 +292,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="prop100")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Вы выбрали товар:Нитропропен 200 грамм \n \U0001F4B2К оплате: 49500 рублей \n \U0001F4B3Bitcoin кошелёк: \n 1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G \n\U0001F6A9 После оплаты нажмите кнопку 'Обновить' ",
+                              text="Вы выбрали товар:Нитропропен 1000 грамм \n \U0001F4B2К оплате: 57000 рублей \n \U0001F4B3Bitcoin кошелёк: \n 1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G \n\U0001F6A9 После оплаты нажмите кнопку 'Обновить' ",
                               reply_markup=keyboard)
     elif call.data == "etil3":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -291,70 +312,80 @@ def callback_inline(call):
                               reply_markup=keyboard)
     elif call.data == "half1" or call.data =="half3":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб. ", callback_data="prop100")
-        rele2 = types.InlineKeyboardButton(text="Нитропропен 500гр - 30500руб." , callback_data="prop500")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -18000руб.", callback_data="etil2")
+        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб. ", callback_data="prop100")
+        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 2000руб." , callback_data="prop200")
+        rele3 = types.InlineKeyboardButton(text="Нитроэтилен 0.5литра -8000руб.", callback_data="etil50")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 1литра -13000руб.", callback_data="etil1")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="halffirst")
-        keyboard.add(rele1, rele2,rele4,backbutton)
+        keyboard.add(rele1, rele2,rele3,rele4,backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "half2" or call.data=="half4":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 17500руб." , callback_data="prop200")
+        rele2 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб." , callback_data="prop100")
+        rele5 = types.InlineKeyboardButton(text="Нитроэтилен 0.5литра -8000руб.", callback_data="etil50")
         rele3 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 11000руб.", callback_data="etil1")
         rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -18000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="halffirst")
-        keyboard.add(rele2, rele3,rele4,backbutton)
+        keyboard.add(rele2,rele5,rele3,rele4,backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "half5" or call.data == "half8":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Нитропропен 200гр - 17500руб. ", callback_data="prop200")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 1литр -11000руб.", callback_data="etil1")
+        rele3 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб.", callback_data="prop100")
+        rele1 = types.InlineKeyboardButton(text="Нитропропен 200гр - 20000руб. ", callback_data="prop200")
+        rele2 = types.InlineKeyboardButton(text="Нитроэтилен 0.5литра -8000руб.", callback_data="etil50")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 1литр -13000руб.", callback_data="etil1")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="halffirst")
-        keyboard.add(rele1,rele4, backbutton)
+        keyboard.add(rele3,rele1,rele2,rele4, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                               text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "half6":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб. ", callback_data="prop100")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литр -18000руб.", callback_data="etil2")
+        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб. ", callback_data="prop100")
+        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 20000руб. ", callback_data="prop200")
+        rele3 = types.InlineKeyboardButton(text="Нитроэтилен 0.5литра -8000руб.", callback_data="etil50")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литр -23000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="halffirst")
-        keyboard.add(rele1,rele4, backbutton)
+        keyboard.add(rele1,rele2,rele3,rele4, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                               text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "half7":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литр -18000руб.", callback_data="etil2")
+        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб. ", callback_data="prop100")
+        rele3 = types.InlineKeyboardButton(text="Нитроэтилен 0.5литра -8000руб.", callback_data="etil50")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литр -20000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="halffirst")
-        keyboard.add(rele4, backbutton)
+        keyboard.add(rele1,rele3,rele4, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                               text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "Piter1":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 17500руб." , callback_data="prop200")
-        rele3 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб.", callback_data="prop100")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 3литра -27000руб.", callback_data="etil3")
+        rele3 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб.", callback_data="prop100")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 0,5литра 8000руб.", callback_data="etil50")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="second")
-        keyboard.add(rele2, rele3,rele4,backbutton)
+        keyboard.add(rele3,rele4,backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "Piter2":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 17500руб.", callback_data="prop200")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -18000руб.", callback_data="etil2")
+        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб.", callback_data="prop100")
+        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 20000руб.", callback_data="prop200")
+        rele3 = types.InlineKeyboardButton(text="Нитроэтилен 0,5литра 8000руб.", callback_data="etil50")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -23000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="second")
-        keyboard.add(rele2, rele4, backbutton)
+        keyboard.add(rele1,rele2,rele3,rele4, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                               text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "Piter3":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
+        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб.", callback_data="prop100")
         rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 17500руб.", callback_data="prop200")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -18000руб.", callback_data="etil2")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -23000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="second")
         keyboard.add(rele2, rele4, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
@@ -362,62 +393,65 @@ def callback_inline(call):
                               reply_markup=keyboard)
     elif call.data == "Rostov1":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 11000руб.", callback_data="etil1")
-        rele3 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб.", callback_data="prop100")
-        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 17500руб.", callback_data="prop200")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -18000руб.", callback_data="etil2")
-        rele5 = types.InlineKeyboardButton(text="Нитроэтилен 3литра -27000руб.", callback_data="etil3")
+        rele1 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 13000руб.", callback_data="etil1")
+        rele3 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб.", callback_data="prop100")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -23000руб.", callback_data="etil2")
+        rele5 = types.InlineKeyboardButton(text="Нитроэтилен 0,5литра 8000руб.", callback_data="etil50")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="third")
-        keyboard.add(rele1, rele3, rele5, rele2, rele4, backbutton)
+        keyboard.add(rele1, rele3, rele5,rele4, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                               text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "Rostov2":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 11000руб.", callback_data="etil1")
+        rele1 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 13000руб.", callback_data="etil1")
+        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 17500руб.", callback_data="prop200")
         rele3 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб.", callback_data="prop100")
         rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -18000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="third")
-        keyboard.add(rele1, rele3,rele4, backbutton)
+        keyboard.add(rele1,rele2,rele3,rele4, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                               text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "ekb1":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 11000руб.", callback_data="etil1")
-        rele3 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб.", callback_data="prop100")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -18000руб.", callback_data="etil2")
+        rele1 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 13000руб.", callback_data="etil1")
+        rele3 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб.", callback_data="prop100")
+        rele5 = types.InlineKeyboardButton(text="Нитроэтилен 0,5литра - 8000руб.", callback_data="etil50")
 
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="fourth")
-        keyboard.add(rele1, rele3,rele4, backbutton)
+        keyboard.add(rele1, rele3,rele5, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                               text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "ekb2":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 11000руб.", callback_data="etil1")
-        rele3 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб.", callback_data="prop100")
-        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 17500руб.", callback_data="prop200")
+        rele1 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 13000руб.", callback_data="etil1")
+        rele3 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб.", callback_data="prop100")
+        rele5 = types.InlineKeyboardButton(text="Нитроэтилен 0,5литра - 8000руб.", callback_data="etil50")
+        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 2300руб.", callback_data="prop200")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="fourth")
-        keyboard.add(rele1, rele3,rele2,backbutton)
+        keyboard.add(rele1, rele3,rele2,rele5,backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                               text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "ekb3":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб. ", callback_data="prop100")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литр -18000руб.", callback_data="etil2")
+        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб. ", callback_data="prop100")
+        rele5 = types.InlineKeyboardButton(text="Нитроэтилен 0,5литра- 8000руб.", callback_data="etil50")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литр -23000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="fourth")
-        keyboard.add(rele1,rele4, backbutton)
+        keyboard.add(rele1,rele5,rele4, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                               text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "nvsb1":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб. ", callback_data="prop100")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литр -18000руб.", callback_data="etil2")
+        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб. ", callback_data="prop100")
+        rele5 = types.InlineKeyboardButton(text="Нитроэтилен 0,5литра- 8000руб.", callback_data="etil50")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литр -23000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="five")
-        keyboard.add(rele1,rele4, backbutton)
+        keyboard.add(rele1,rele5,rele4, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                               text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
@@ -426,9 +460,10 @@ def callback_inline(call):
         keyboard = types.InlineKeyboardMarkup(row_width=1)
         rele1 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 11000руб.", callback_data="etil1")
         rele3 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб.", callback_data="prop100")
+        rele5 = types.InlineKeyboardButton(text="Нитроэтилен 0,5литра -8000руб.", callback_data="etil50")
         rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 17500руб.", callback_data="prop200")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="five")
-        keyboard.add(rele1, rele3,rele2,backbutton)
+        keyboard.add(rele1, rele3,rele2,rele5,backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                               text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
@@ -436,25 +471,28 @@ def callback_inline(call):
         keyboard = types.InlineKeyboardMarkup(row_width=1)
         rele1 = types.InlineKeyboardButton(text="Нитропропен 200гр - 17500руб. ", callback_data="prop200")
         rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литр -18000руб.", callback_data="etil2")
+        rele5 = types.InlineKeyboardButton(text="Нитроэтилен 0,5литра -8000руб.", callback_data="etil50")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="five")
-        keyboard.add(rele1,rele4, backbutton)
+        keyboard.add(rele1,rele5,rele4, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                               text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "clb1":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб. ", callback_data="prop100")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литр -18000руб.", callback_data="etil2")
+        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб. ", callback_data="prop100")
+        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 2000руб. ", callback_data="prop200")
+        rele5 = types.InlineKeyboardButton(text="Нитроэтилен 0,5литра -8000руб.", callback_data="etil50")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литр -23000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="six")
-        keyboard.add(rele1,rele4, backbutton)
+        keyboard.add(rele1,rele2,rele4,rele5, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                               text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "clb2":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 11000руб.", callback_data="etil1")
-        rele3 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб.", callback_data="prop100")
-        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 17500руб.", callback_data="prop200")
+        rele1 = types.InlineKeyboardButton(text="Нитроэтилен 0,5литра -8000руб.", callback_data="etil50")
+        rele3 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 13000руб.", callback_data="etil1")
+        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 2000руб.", callback_data="prop200")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="six")
         keyboard.add(rele1, rele3,rele2,backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
@@ -462,37 +500,41 @@ def callback_inline(call):
                               reply_markup=keyboard)
     elif call.data == "novgorod1":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб. ", callback_data="prop100")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -18000руб.", callback_data="etil2")
+        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб. ", callback_data="prop100")
+        rele5 = types.InlineKeyboardButton(text="Нитроэтилен 0,5литра -8000руб.", callback_data="etil50")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -23000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="seven")
-        keyboard.add(rele1,rele4, backbutton)
+        keyboard.add(rele1,rele4,rele5, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                               text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
 
     elif call.data == "novgorod2":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб. ", callback_data="prop100")
-        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 17500руб.", callback_data="prop200")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -18000руб.", callback_data="etil2")
+        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб. ", callback_data="prop100")
+        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 2000руб.", callback_data="prop200")
+        rele5 = types.InlineKeyboardButton(text="Нитроэтилен 0,5литра -8000руб.", callback_data="etil50")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -23000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="seven")
-        keyboard.add(rele1,rele4,rele2,backbutton)
+        keyboard.add(rele1,rele4,rele5,rele2,backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                               text="Район выбран.Выберите товар:",
                               reply_markup=keyboard)
     elif call.data == "prm1":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 17500руб." , callback_data="prop200")
-        rele3 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 11000руб.", callback_data="etil1")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -18000руб.", callback_data="etil2")
+        rele2 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб." , callback_data="prop100")
+        rele3 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 13000руб.", callback_data="etil1")
+        rele5 = types.InlineKeyboardButton(text="Нитроэтилен 0,5литра -8000руб.", callback_data="etil50")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -23000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="eight")
-        keyboard.add(rele2, rele3,rele4,backbutton)
+        keyboard.add(rele2, rele3,rele4,rele5,backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "prm3":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 9500руб. ", callback_data="prop100")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литрf -18000руб.", callback_data="etil2")
+        rele1 = types.InlineKeyboardButton(text="Нитропропен 200гр - 20000руб. ", callback_data="prop200")
+        rele5 = types.InlineKeyboardButton(text="Нитроэтилен 0,5литра -8000руб.", callback_data="etil50")
+        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -23000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="eight")
         keyboard.add(rele1,rele4, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
