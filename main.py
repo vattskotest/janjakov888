@@ -156,7 +156,7 @@ def callback_inline(call):
                               reply_markup=keyboard)
     elif call.data == "etil50":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
-        rele1 = types.InlineKeyboardButton(text="Оплатить Нитроэтилен 50грамм", callback_data="payetil50")
+        rele1 = types.InlineKeyboardButton(text="Оплатить Нитроэтилен 0.5литра", callback_data="payetil50")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="mainmenu")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
