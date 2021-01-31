@@ -492,7 +492,7 @@ def callback_inline(call):
         keyboard = types.InlineKeyboardMarkup(row_width=1)
         rele1 = types.InlineKeyboardButton(text="Нитроэтилен 0,5литра -8000руб.", callback_data="etil50")
         rele3 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 13000руб.", callback_data="etil1")
-        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 2000руб.", callback_data="prop200")
+        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 20000руб.", callback_data="prop200")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="six")
         keyboard.add(rele1, rele3,rele2,backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
@@ -543,6 +543,7 @@ def callback_inline(call):
     elif call.data == "prm2":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
         rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб. ", callback_data="prop100")
+        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 20000руб. ", callback_data="prop200")
         rele4 = types.InlineKeyboardButton(text="Нитроэтилен 1литр -13000руб.", callback_data="etil1")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="eight")
         keyboard.add(rele1,rele4, backbutton)
