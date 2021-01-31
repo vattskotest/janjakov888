@@ -144,7 +144,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="mainmenu")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="\U0001F48AВыбран товар:Нитропропен 100грамм.\n\U0001F4B2К оплате: 9500 рублей.\nТовар зарезервирован на 40 минут!\n\U0001F558спустя 40 минут бронь пропадет!",
+                              text="\U0001F48AВыбран товар:Нитропропен 100грамм.\n\U0001F4B2К оплате: 11500 рублей.\nТовар зарезервирован на 40 минут!\n\U0001F558спустя 40 минут бронь пропадет!",
                               reply_markup=keyboard)
     elif call.data == "prop200":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -152,7 +152,7 @@ def callback_inline(call):
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="mainmenu")
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Выбран товар:\U0001F48AНитропропен 200грамм.\n\U0001F4B2К оплате 17500 рублей.\nТовар зарезервирован на 40 минут\n\U0001F558спустя 40 минут бронь пропадет!",
+                              text="Выбран товар:\U0001F48AНитропропен 200грамм.\n\U0001F4B2К оплате 20000 рублей.\nТовар зарезервирован на 40 минут\n\U0001F558спустя 40 минут бронь пропадет!",
                               reply_markup=keyboard)
     elif call.data == "etil50":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
