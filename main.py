@@ -170,7 +170,7 @@ def callback_inline(call):
         # bot.send_photo(chat_id=call.message.chat.id, photo=img)
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Вы выбрали товар: \n \U0001F48AНитроэтилен 0.5литров\n\U0001F4B2 К оплате: 8000 рублей \n \U0001F4B3Bitcoin кошелёк:\n 13uJrkRFNiu65PR8cMCNtoXALk4WoijXTi \n\U0001F6A9 После оплаты нажмите кнопку 'Обновить' ",
+                              text="Вы выбрали товар: \n \U0001F48AНитроэтилен 0.5литров\n\U0001F4B2 К оплате: 8000 рублей \n \U0001F4B3Bitcoin кошелёк:\n 1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G \n\U0001F6A9 После оплаты нажмите кнопку 'Обновить' ",
                               reply_markup=keyboard)
     elif call.data == "etil1":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -196,7 +196,7 @@ def callback_inline(call):
         # bot.send_photo(chat_id=call.message.chat.id, photo=img)
         keyboard.add(rele1, backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                              text="Вы выбрали товар: \n \U0001F48AНитропропен: 100 грамм \n\U0001F4B2 К оплате: 11500 рублей \n \U0001F4B3Bitcoin кошелёк:\n 1H6DRNV7RwoEgLBaEGehzPEwxtZQTh626G \n\U0001F6A9 После оплаты нажмите кнопку 'Обновить' ",
+                              text="Вы выбрали товар: \n \U0001F48AНитропропен: 100 грамм \n\U0001F4B2 К оплате: 11500 рублей \n \U0001F4B3Bitcoin кошелёк:\n  \n\U0001F6A9 После оплаты нажмите кнопку 'Обновить' ",
                               reply_markup=keyboard)
     elif call.data == "payprop200":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
@@ -480,7 +480,7 @@ def callback_inline(call):
     elif call.data == "clb1":
         keyboard = types.InlineKeyboardMarkup(row_width=1)
         rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб. ", callback_data="prop100")
-        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 2000руб. ", callback_data="prop200")
+        rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 20000руб. ", callback_data="prop200")
         rele5 = types.InlineKeyboardButton(text="Нитроэтилен 0,5литра -8000руб.", callback_data="etil50")
         rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литр -23000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="six")
