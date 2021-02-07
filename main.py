@@ -234,10 +234,8 @@ def callback_inline(call):
         keyboard = types.InlineKeyboardMarkup(row_width=1)
         rele1 = types.InlineKeyboardButton(text="Нитропропен 100гр - 11500руб. ", callback_data="prop100")
         rele2 = types.InlineKeyboardButton(text="Нитропропен 200гр - 20000руб." , callback_data="prop200")
-        rele3 = types.InlineKeyboardButton(text="Нитроэтилен 0.5литра -8000руб.", callback_data="etil50")
-        rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -23000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="first")
-        keyboard.add(rele1, rele2,rele3,rele4,backbutton)
+        keyboard.add(rele1, rele2,backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "prop500":
