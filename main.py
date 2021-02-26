@@ -325,7 +325,7 @@ def callback_inline(call):
         rele3 = types.InlineKeyboardButton(text="Нитроэтилен 1литр - 13000руб.", callback_data="etil1")
         rele4 = types.InlineKeyboardButton(text="Нитроэтилен 2литра -18000руб.", callback_data="etil2")
         backbutton = types.InlineKeyboardButton(text="Назад", callback_data="halffirst")
-        keyboard.add(rele2,rele5,rele3,rele4,backbutton)
+        keyboard.add(rele2,rele5,rele3,backbutton)
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text="Район выбран.Выберите Товар:",
                               reply_markup=keyboard)
     elif call.data == "half5" or call.data == "half8":
